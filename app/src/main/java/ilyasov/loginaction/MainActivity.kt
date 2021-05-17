@@ -20,13 +20,11 @@ class MainActivity : AppCompatActivity() {
         passwordEditText = findViewById(R.id.editTextPassword)
 
         val button: Button = findViewById(R.id.button)
-        val buttonClick: View.OnClickListener = object : View.OnClickListener {
-            override fun onClick(v: View) {
-                startActivity(Intent(v.context, SecondActivity::class.java).apply{
-                    putExtra("Email", emailEditText.text)
-                    putExtra("Password", passwordEditText.text)
-                })
-            }
+        val buttonClick: View.OnClickListener = View.OnClickListener { v ->
+            startActivity(Intent(v.context, SecondActivity::class.java).apply{
+                putExtra("Email", emailEditText.text)
+                putExtra("Password", passwordEditText.text)
+            })
         }
         button.setOnClickListener(buttonClick)
     }
