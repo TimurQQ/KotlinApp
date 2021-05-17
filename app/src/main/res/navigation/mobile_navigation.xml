@@ -16,4 +16,10 @@
         tools:layout="@layout/fragment_2" >
     </fragment>
 
+    <fragment
+        android:id="@+id/list_fragment"
+        android:name="ilyasov.loginaction.ListFragment"
+        tools:layout="@layout/fragment_list_list">
+    </fragment>
+
 </navigation>
