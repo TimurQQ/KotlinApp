@@ -14,14 +14,16 @@ class ListFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
+        return inflater.inflate(R.layout.fragment_list_list, container, false) as RecyclerView
+    }
 
-        val view = inflater.inflate(R.layout.fragment_list_list, container, false) as RecyclerView
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
         for (i in 1..COUNT) {
             items.add("Item $i")
         }
-        view.adapter = MyItemRecyclerViewAdapter(items)
-
-        return view
+        (view as RecyclerView).adapter = MyItemRecyclerViewAdapter(items)
     }
 
     companion object {
