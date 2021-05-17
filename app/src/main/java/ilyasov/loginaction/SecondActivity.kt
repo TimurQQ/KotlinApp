@@ -2,8 +2,11 @@ package ilyasov.loginaction
 
 import android.annotation.SuppressLint
 import android.os.Bundle
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.NavigationUI
+import com.google.android.material.bottomnavigation.BottomNavigationView
+
 
 class SecondActivity : AppCompatActivity() {
 
@@ -12,11 +15,9 @@ class SecondActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_second)
 
-        val arguments = intent.extras
-        val email : String = arguments?.get("Email").toString()
-        val password : String = arguments?.get("Password").toString()
-
-        val dataTextView : TextView = findViewById(R.id.dataTextView)
-        dataTextView.text = "$email - $password"
+        val navView = findViewById<BottomNavigationView>(R.id.nav_view)
+        val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+        val navController = navHostFragment.navController
+        NavigationUI.setupWithNavController(navView, navController)
     }
 }
